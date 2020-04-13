@@ -5,15 +5,17 @@ import { Cards, Chart, CountryPicker } from './components';
 import { fetchData } from './api';
 
 export default class App extends React.Component {
+  
   state = {
-    data: {},
+    data: [],
   }
 
   async componentDidMount(){
     const fetchedData = await fetchData();
     this.setState({
-      data: fetchData
+      data: fetchedData,
     });
+
   }
 
   render() {
