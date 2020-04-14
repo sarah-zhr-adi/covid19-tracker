@@ -4,6 +4,11 @@
   width: 85%;
 }
 
+canvas {
+  background: #252f40;
+  padding: 2rem;
+}
+
 @media (max-width: 770px) {
   .container {
     width: 100%

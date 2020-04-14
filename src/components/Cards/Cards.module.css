@@ -1,21 +1,55 @@
 .container {
   margin: 50px 0;  
+  width: 100%;
 }
 
 .card {
   margin: 0 2% !important;
+  background-color: #253044 !important;
+  min-width: 200px;
+  text-align: center;
+}
+
+h5,
+select {
+  color: #b4bad6 !important;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+
+span {
+  font-size: 1.2rem;
+  color: #a1b7bf;
+}
+
+.dateUpdated {
+  font-size: 1.2rem;
+  color: #799aa7;
 }
 
 .infected {
-  border-bottom: 10px solid rgb(0, 0, 255, 0.5);
+  border-bottom: 10px solid rgb(255, 94, 0);
 }
 
 .recovered {
-  border-bottom: 10px solid rgb(0, 255, 0, 0.5);
+  border-bottom: 10px solid rgb(2, 220, 2);
 }
 
 .deaths {
-  border-bottom: 10px solid rgb(255, 0, 0, 0.5);
+  border-bottom: 10px solid rgb(232, 1, 1);
+}
+
+svg {
+  color: #3F52B5 !important;
+}
+
+
+select
+ {
+  border-bottom: 1px solid #3F52B5 !important;
 }
 
 @media (max-width: 770px) {

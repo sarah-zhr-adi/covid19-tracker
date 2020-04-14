@@ -4,22 +4,20 @@ import { fetchCountries } from './../../api';
 import styles from './CountryPicker.module.css';
 
 const CountryPicker = ( { handleCountryChange } ) => {
-  const [ fetchedCountries, setFetchedCountries ] = useState([]);
-
+  const [ countries, setFetchedCountries ] = useState([]);
   useEffect(() => {
-    const fetchedAPI = async () => {
-      setFetchedCountries(await fetchCountries);
-    }
-    fetchedAPI();
-  }, [setFetchedCountries]); // this means that the state will change only when setFetchedCountries change
+    const fetchAPI = async () => {
+      setFetchedCountries(await fetchCountries());
+    };
+    fetchAPI();
+  }, []); // this means that the state will change only when setFetchedCountries change
 
+  console.log('HERE',countries);
   return (
     <FormControl className={styles.formControl}>
       <NativeSelect defaultValue ="" onChange={(e) => handleCountryChange(e.target.value)}>
         <option value="" >Global</option>
-        {
-          fetchedCountries.map((country, i) => <option key={i} value={country} >{country}</option>)
-        }
+        {countries.map((country, i) => <option key={i} value={country}>{country}</option>)}
       </NativeSelect>
     </FormControl>
   )

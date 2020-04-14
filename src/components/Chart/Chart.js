@@ -4,11 +4,12 @@ import { Line, Bar } from 'react-chartjs-2';
 import styles from './Chart.module.css';
 
 const Chart = ({ data: { confirmed, deaths, recovered}, country}) => {
-  const [ dailyData, setDailyData ] = useState([]);
+  const [ dailyData, setDailyData ] = useState({});
 
   useEffect(()=> {
     const fetchAPI = async () => {
-      setDailyData(await fetchDailyData());
+     const initialDailyData = await fetchDailyData();
+     setDailyData(initialDailyData);
     }
     fetchAPI();
   }, []);
@@ -44,15 +45,16 @@ const Chart = ({ data: { confirmed, deaths, recovered}, country}) => {
       <Bar
         data={{
           labels: ['Infected', 'Recovered', 'Deaths'],
-          datasets: [{
+          datasets: [
+            {
               label: 'People',
               backgroundColor: [
                 'rgb(0, 0, 255, 0.5)',
                 'rgb(0, 255, 0, 0.5)',
                 'rgb(255, 0, 0, 0.5)'
               ],
-              data: [confirmed.value, recovered.value, deaths.value]
-          }]
+              data: [confirmed.value, recovered.value, deaths.value],
+          },],
         }}
         options={{
           legend: { display: false },
